@@ -10,6 +10,8 @@ namespace VB2QLNS.Views
 {
     public partial class frmLogin : Form
     {
+        private bool loginSuccess = false;
+
         public frmLogin()
         {
             InitializeComponent();
@@ -22,7 +24,16 @@ namespace VB2QLNS.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             this.Close();
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!loginSuccess)
+            {
+                Application.Exit();
+            }
         }
     }
 }
